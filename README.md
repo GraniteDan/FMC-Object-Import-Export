@@ -7,11 +7,19 @@ API Import and Grouping of Common Protocol Port Objects into Cisco Firepower Man
 ## Pre-Requisits
 This python script requires the addition of two non-standard libraries (fireREST, and ansicolors).  These pre-requisits can be installed using the pip:
 
-**pip install ansicolors fireREST**
-
+**`pip install ansicolors fireREST`**
 
 ## Purpose
 This Script is being developed in response to a recent project where I was unable to upgrade FMC to support the newer Cisco Secure Firewall devices, without loosing managment support for existing legacy ASA devices.
+
+**Logging**
+Export and Import Scripts will create log files named **FMCObjectImport.log** and **FMCObjectExport.log** respectively.  The default logging leve is set to INFO.  Logging level can be changed my modifying line 6 of each script:
+
+```
+logging.basicConfig(filename='FMCObjectImport.log',level=logging.INFO)
+```
+For more information on python logging levels reference the [Python Documentation Site]("https://docs.python.org/3/library/logging.html")
+
 
 **FMCExportObjects.py**
 This Python script will export Objects from an FMC Deployment to json files. This script will also export various policy objects, along will Access Control Policy rules.  Additional work will be done to develop further capabilities to export and import Policies.
@@ -53,3 +61,5 @@ All file names referenced in the above tables are used during object import.  Re
 
 This Script will import objects to an other FMC deployment, by reading the json data files saved by FMCExportObjects.py. The process will remove unwanted metadata from the exported json data before importing and creating new objects. Object groups will also be imported and member objects will be matched to the newly created object id's in the new FMC deployment.
 
+**NOTE:**
+Curently No import action is taken for Access, Intrusion, File, or Prefilter Policies.  This functionality will require a fair amount of tested as so many objects are referenced by each poicy rule.  Each object will need to have it's name validated and it's id attribute update
