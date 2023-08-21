@@ -3,7 +3,7 @@ import csv, json
 from colors import red, green, blue, yellow, magenta, cyan
 from getpass import getpass
 import logging
-logging.basicConfig(filename='FMCImport.log',level=logging.DEBUG)
+logging.basicConfig(filename='FMCObjectImport.log',level=logging.INFO)
 ## Global Variables ##
 global fmc
 
