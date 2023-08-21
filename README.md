@@ -12,7 +12,7 @@ This python script requires the addition of two non-standard libraries (fireREST
 ## Purpose
 This Script is being developed in response to a recent project where I was unable to upgrade FMC to support the newer Cisco Secure Firewall devices, without loosing managment support for existing legacy ASA devices.
 
-**Logging**
+### Logging
 Export and Import Scripts will create log files named **FMCObjectImport.log** and **FMCObjectExport.log** respectively.  The default logging leve is set to INFO.  Logging level can be changed my modifying line 6 of each script:
 
 ```
@@ -21,10 +21,10 @@ logging.basicConfig(filename='FMCObjectImport.log',level=logging.INFO)
 For more information on python logging levels reference the [Python Documentation Site]("https://docs.python.org/3/library/logging.html")
 
 
-**FMCExportObjects.py**
+## FMCExportObjects.py
 This Python script will export Objects from an FMC Deployment to json files. This script will also export various policy objects, along will Access Control Policy rules.  Additional work will be done to develop further capabilities to export and import Policies.
 
-***Exported Objects and Associated Files***
+### Exported Objects and Associated Files
 | Object Type | JSON Export File | 
 |-------------|-------------|
 | Security Zones| securityzone.json |
@@ -38,7 +38,7 @@ This Python script will export Objects from an FMC Deployment to json files. Thi
 | Port Object Groups | portobjectgroup.json |
 | Network Object Groups | networkgroup.json |
 
-***Exported Policies and Associated Files***
+### Exported Policies and Associated Files
 | Policy Type | JSON Export File |
 |-------------|------------------|
 | Access Policies | accesspolicy.json |
@@ -46,6 +46,7 @@ This Python script will export Objects from an FMC Deployment to json files. Thi
 | Intrusion Policies | intrusionpolicy.json |
 | Prefilter Policies | prefilterpolicy.json |
 
+### Exported Access Policy Components and Assoicated Files
 Each Access Policy is also exported along with Its associated Categories and Rules.
 
 | Access Policy Elements | JSON Export File |
@@ -57,8 +58,7 @@ Each Access Policy is also exported along with Its associated Categories and Rul
 **NOTE:**
 All file names referenced in the above tables are used during object import.  Renaming these files will have a negative impact on object imports
 
-**FMCImportObjects.py**
-
+## FMCImportObjects.py
 This Script will import objects to an other FMC deployment, by reading the json data files saved by FMCExportObjects.py. The process will remove unwanted metadata from the exported json data before importing and creating new objects. Object groups will also be imported and member objects will be matched to the newly created object id's in the new FMC deployment.
 
 **NOTE:**
