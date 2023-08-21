@@ -1,9 +1,6 @@
 # FMC-Objec-tImport-Export
 Scripts for Exporting and Objects from one Firepower Management Console and Importing them into another.
 
-# FMCPortImport
-API Import and Grouping of Common Protocol Port Objects into Cisco Firepower Managment Console
-
 ## Pre-Requisits
 This python script requires the addition of two non-standard libraries (fireREST, and ansicolors).  These pre-requisits can be installed using the pip:
 
