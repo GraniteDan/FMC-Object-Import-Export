@@ -12,7 +12,7 @@ This Script is being developed in response to a recent project where I was unabl
 ### Logging
 Export and Import Scripts will create log files named **FMCObjectImport.log** and **FMCObjectExport.log** respectively.  The default logging leve is set to INFO.  Logging level can be changed my modifying line 6 of each script:
 
-```
+```python
 logging.basicConfig(filename='FMCObjectImport.log',level=logging.INFO)
 ```
 For more information on python logging levels reference the [Python Documentation Site]("https://docs.python.org/3/library/logging.html")
